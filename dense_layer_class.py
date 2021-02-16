@@ -1,3 +1,5 @@
+import numpy as np 
+
 # dense layer
 
 class Layer_Dense:
@@ -8,5 +10,5 @@ class Layer_Dense:
         
     # Forward pass
     def forward(self, inputs):
-        self.outputs = np.dot(inputs, self.weights)+self.biases
-        pass
+        self.output = np.dot(inputs, self.weights) + self.biases
+        
