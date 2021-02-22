@@ -12,3 +12,11 @@ class Layer_Dense:
     def forward(self, inputs):
         self.output = np.dot(inputs, self.weights) + self.biases
         
+# ReLU activation
+class Activation_ReLU:
+    
+    #forward pass
+    def forward(self,inputs):
+        self.output = np.maximum(0, inputs)
+
+        
