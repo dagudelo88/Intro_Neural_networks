@@ -1,6 +1,6 @@
 import numpy as np
 import nnfs
-from dense_layer_class  import  Layer_Dense, Activation_ReLU, Activation_Softhmax
+from dense_layer_class  import  Layer_Dense, Activation_ReLU, Activation_Softhmax, Loss, Loss_CategoricalCrossentropy
 from nnfs.datasets import spiral_data
 
 nnfs.init()
@@ -21,6 +21,8 @@ dense2 = Layer_Dense(3,3)
 # Create a Softmax activation( to be used with Dense layer)
 activation2 = Activation_Softhmax()
 
+# Create  loss function
+loss_function = Loss_CategoricalCrossentropy()
 
 # Performe a forward  pass of our training data through this layer
 dense1.forward(x)
@@ -40,3 +42,10 @@ activation2.forward(dense2.output)
 
 
 print(activation2.output[:5])
+
+# Perform a forward pass through activation function
+# it takes the output of second dense layer here and returns loss
+loss = loss_function.calculate(activation2.output,y)
+
+# print losss value
+print('Loss: ', loss)
